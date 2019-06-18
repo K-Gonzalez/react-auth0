@@ -1,14 +1,72 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.body {
+  margin: 15px;
 }
+h1 {
+  color: #1b3d47;
+}
+
+h2,
+h3 {
+  color: #723329;
+}
+
+button {
+  margin: 5px;
+}
+
+ul.unstyled {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-image: linear-gradient(to bottom right, #1b3d47, #d8e7c3);
+}
+
+nav li {
+  float: left;
+}
+
+nav li a, nav li i {
+  display: block;
+  color: #FFF7F6;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav li a:hover, nav li i:hover {
+  background-color: #1b3d47;
+}
+
+.fa-sign-in-alt, .fa-sign-out-alt {
+  right: 0;
+  left: inherit;
+  font-size: 35px;
+  margin-top: 5px;
+  color: #723329;
+}
+
+.fa-sign-in-alt:hover, .fa-sign-out-alt:hover {
+  font-size: 38px;
+  margin-top: 4px;
+  color: #8a524a;
+  cursor: pointer;
+}
+
+.fa-spinner {
+  color: #723329;
+  margin: 3.5em auto;
+}
+

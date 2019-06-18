@@ -1,68 +1,77 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### This React app was built while completing the PluralSight course:  
+***"Securing React Apps with Auth0", by Author Cory House.***
 
-## Available Scripts
+#### To understand how this app works and the demonstration purpose
+**You should have a basic understanding of:**
+* OAuth 2.0
+* OpenID Connect
+* JSON Web Tokens (JWTs)
+* Auth0
+* React
+* React create-react-app
+* Node
 
-In the project directory, you can run:
+#### Pre-Requisites:
 
-### `npm start`
+* [Node](https://nodejs.org)
+* IDE compatible with React (Many JavaScript IDEs are), like [JetBrains WebStorm](https://www.jetbrains.com/webstorm/) or a free alternative like [VS Code](code.visualstudio.com)
+* [Auth0](https://auth0.com/) account
+* Auth0 Single Page Application with:
+  * Name
+  * Allowed Callback URLs&nbsp;(default shown in .env file)
+  * Allowed Web Origins&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(default shown in .env file)
+  * Allowed Logout URLs&nbsp;&nbsp;&nbsp;&nbsp;(default shown in .env file)
+* Auth0 API created.
+  * A Permissions of ```read:courses``` needs to be defined.
+* Auth0 Machine to Machine Application created with your host and server port.
+  * The above API needs to be added and toggled as Authorized.
+  
+#### Configuration
+Some default configuration has been set for using localhost with ports 3000 and 30001 for client and server.  
+The following need to be set in your .env file to match your Auth0 configurations (defaults shown):
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* REACT_APP_HOST=localhost
+* REACT_APP_PORT=3000
+* REACT_APP_SERVER_PORT=3001
+* REACT_APP_AUTH0_DOMAIN=your Auth0 Domain
+* REACT_APP_AUTH0_CLIENT_ID=your Auth0 Client ID
+* REACT_APP_AUTH0_CALLBACK_URL=http://localhost:3000/callback
+* REACT_APP_AUTH0_LOGOUT_URL=http://localhost:3000
+* REACT_APP_AUTH0_AUDIENCE=http://localhost:3001
+* REACT_APP_API_URL=http://localhost:3001
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+You will also need to update your own workspace.xml file
 
-### `npm test`
+#### Caveats
+* This app was built in a dev environment on localhost for learning and demo purposes only. It is not production ready.
+* Silent authentication will not function in two scenarios while in a development working environment.
+  * Silent auth will not work when 3rd part cookies are disabled.
+    * To work around this in dev you can disable your browser from blocking 3rd party cookies.
+    * Preferably and for production, a custom domain needs to be configured.
+  * Silent auth will not work with social IDPs without configuring each IDP with your own keys.
+    * The development key provided by Auth0 will need to be replaced with actual key you own before attempting production.
+* Roles added in this course are not Role 'objects' but were added dynamically by Auth0 Rules
+  * A Rules 'Access Control' template called 'Set roles to a user'.
+    * Customized to try out:
+      * On Line 12 of the Rule, set email ending in what you are using for dev/demo purposes
+        ```javascript
+        const endsWith = '@mail.com';
+        ```
+      * On line 25 of the Rule, set context idToken key
+        ```javascript
+        context.idToken['https://<host>:<port>/roles'] = user.app_metadata.roles;
+        ```
+  * A Rules 'Empty' template custom named 'Add roles to accessTokens' which simple adds rules to the context for easy retrieval.
+    * In your empty rule, where it says `````// TODO: implement your rule`````:  
+      ```javascript
+      if (user.app_metadata && user.app_metadata.roles) {
+        context.accessToken['http://<host>:<port>/roles'] = user.app_metadata.roles; 
+      }
+      ```
+* Since this app was built while taking a course, some details of the code may be difficult to understand if you have not taken the course.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+#### Run (remember this is only a dev environment)
+Type **`npm start`** in your terminal while in your project directory.
+#### Test
+Type **`npm test`** in your terminal while in your project directory.  
+*You should add additional tests. There is only one that tests the App 'renders without crashing'.*
