@@ -1,7 +1,7 @@
 import auth0 from 'auth0-js';
 
 const REDIRECT_ON_LOGIN = "redirect_on_login";
-const ROLES_KEY = `https://${process.env.REACT_APP_HOST }:${process.env.REACT_APP_PORT}/roles`;
+const ROLES_KEY = `https://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/roles`;
 
 let _accessToken = null;
 // eslint-disable-next-line
