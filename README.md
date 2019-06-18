@@ -27,7 +27,7 @@
   * The above API needs to be added and toggled as Authorized.
   
 ### Configuration
-Some default configuration has been set for using localhost with ports 3000 and 30001 for client and server.  
+Some default configuration has been set for using localhost with ports 3000 and 3001 for client and server.  
 The following need to be set in your .env file to match your Auth0 configurations (defaults shown):
 
 * REACT_APP_HOST=localhost
