@@ -7,7 +7,7 @@ const jwksRsa = require("jwks-rsa");
 // Used to validate the JWT scopes
 const validateScope = require("express-jwt-authz");
 
-const REQ_USER_ROLES_KEY = `http://${process.env.REACT_APP_HOST }:${process.env.REACT_APP_PORT}/roles`;
+const REQ_USER_ROLES_KEY = `http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/roles`;
 
 // Verify signature
 const validateJwt = jwt({
