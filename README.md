@@ -1,3 +1,5 @@
+## Simple React App Secured by Auth0
+
 ### This React app was built while completing the PluralSight course:  
 ***"Securing React Apps with Auth0", by Author Cory House.***
 
