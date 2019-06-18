@@ -1,7 +1,7 @@
-#### This React app was built while completing the PluralSight course:  
+### This React app was built while completing the PluralSight course:  
 ***"Securing React Apps with Auth0", by Author Cory House.***
 
-#### To understand how this app works and the demonstration purpose
+### To understand how this app works and the demonstration purpose
 **You should have a basic understanding of:**
 * OAuth 2.0
 * OpenID Connect
@@ -11,7 +11,7 @@
 * React create-react-app
 * Node
 
-#### Pre-Requisites:
+### Pre-Requisites:
 
 * [Node](https://nodejs.org)
 * IDE compatible with React (Many JavaScript IDEs are), like [JetBrains WebStorm](https://www.jetbrains.com/webstorm/) or a free alternative like [VS Code](code.visualstudio.com)
@@ -26,7 +26,7 @@
 * Auth0 Machine to Machine Application created with your host and server port.
   * The above API needs to be added and toggled as Authorized.
   
-#### Configuration
+### Configuration
 Some default configuration has been set for using localhost with ports 3000 and 30001 for client and server.  
 The following need to be set in your .env file to match your Auth0 configurations (defaults shown):
 
@@ -42,7 +42,7 @@ The following need to be set in your .env file to match your Auth0 configuration
 
 You will also need to update your own workspace.xml file
 
-#### Caveats
+### Caveats
 * This app was built in a dev environment on localhost for learning and demo purposes only. It is not production ready.
 * Silent authentication will not function in two scenarios while in a development working environment.
   * Silent auth will not work when 3rd part cookies are disabled.
@@ -70,8 +70,8 @@ You will also need to update your own workspace.xml file
       ```
 * Since this app was built while taking a course, some details of the code may be difficult to understand if you have not taken the course.
 
-#### Run (remember this is only a dev environment)
+### Run (remember this is only a dev environment)
 Type **`npm start`** in your terminal while in your project directory.
-#### Test
+### Test
 Type **`npm test`** in your terminal while in your project directory.  
 *You should add additional tests. There is only one that tests the App 'renders without crashing'.*
