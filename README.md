@@ -3,7 +3,7 @@
 ### This React app was built while completing the PluralSight course:  
 ***"Securing React Apps with Auth0", by Author Cory House.***
 
-### To understand how this app works and its purpose
+### To understand this app
 **You should have a basic understanding of:**
 * OAuth 2.0
 * OpenID Connect
